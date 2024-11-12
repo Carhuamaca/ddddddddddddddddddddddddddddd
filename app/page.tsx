@@ -4,9 +4,9 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Button } from "@/components/ui/button.tsx"
-import { Card, CardContent } from "@/components/ui/card.tsx"
-import { ShoppingCart, Star, Menu, Phone, Check, Camera } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Menu, Check } from "lucide-react"
 import html2canvas from 'html2canvas'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -80,17 +80,19 @@ const products = [
 ]
 
 export default function Home() {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const audioRef = useRef(null)
   const paymentSectionRef = useRef(null)
 
-  const captureAndSend = async (productId) => {
+  const captureAndSend = async (productId: number) => {
     if (paymentSectionRef.current) {
       const canvas = await html2canvas(paymentSectionRef.current)
-      const image = canvas.toDataURL("image/png")
+      canvas.toDataURL("image/png")
       const product = products.find(p => p.id === productId)
-      const message = encodeURIComponent(`Hola, quiero comprar el ${product.name}. Adjunto captura del método de pago.`)
-      window.open(`https://${product.whatsappLink}`, '_blank')
+      
+      if (product) {
+        window.open(`https://${product.whatsappLink}`, '_blank')
+      } else {
+        console.error("Producto no encontrado")
+      }
     }
   }
 
@@ -107,16 +109,6 @@ export default function Home() {
       }
     })
   }, [])
-
-  const toggleMusic = () => {
-    if (audioRef.current.paused) {
-      audioRef.current.play()
-      setIsPlaying(true)
-    } else {
-      audioRef.current.pause()
-      setIsPlaying(false)
-    }
-  }
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#D32F2F]">
@@ -201,48 +193,16 @@ export default function Home() {
                 className="rounded-full"
               />
             </div>
-            <p className="text-center text-xl font-bold text-[#D32F2F] mb-4 font-roboto">
-              Yape: +51 922 208 408
-            </p>
-            <div className="text-center text-[#333333] font-roboto">
-              <p className="mb-2">1. Realiza el pago al número indicado</p>
-              <p className="mb-2">2. Toma captura de esta sección</p>
-              <p>3. Envía la captura por WhatsApp al comprar</p>
-            </div>
+            <p className="text-center text-xl font-roboto">Yape al número: <span className="font-bold text-[#D32F2F]">990382054</span></p>
           </div>
         </section>
 
-        <section id="contacto" className="text-center">
-          <h2 className="text-3xl font-lobster mb-6 text-[#D32F2F] fade-in">Contáctanos</h2>
-          <p className="text-xl mb-4 text-[#333333] font-roboto">¿Tienes alguna pregunta? ¡Escríbenos por WhatsApp!</p>
-          <a
-            href="https://wa.link/bbcaud"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-[#388E3C] hover:bg-[#2E7D32] rounded-full text-white font-bold transition-colors font-roboto"
-          >
-            <Phone className="mr-2" />
-            Contactar por WhatsApp
-          </a>
+        <section id="contacto" className="text-center py-8">
+          <h2 className="text-3xl font-lobster mb-4 text-[#D32F2F] fade-in">📞 Contáctanos</h2>
+          <p className="text-xl font-roboto mb-6">Para más información puedes llamarnos al:</p>
+          <a href="tel:+51990382054" className="text-2xl font-bold text-[#388E3C] hover:underline">+51 990 382 054</a>
         </section>
       </main>
-
-      <footer className="bg-[#D32F2F] py-8 mt-12">
-        <div className="container mx-auto px-4 text-center text-white font-roboto">
-          <p>© 2024 El Rincón de Marita – Hecho con ❤️ y espíritu navideño</p>
-        </div>
-      </footer>
-
-      <button
-        onClick={toggleMusic}
-        className="fixed bottom-4 right-4 bg-[#388E3C] hover:bg-[#2E7D32] text-white p-3 rounded-full shadow-lg z-50"
-      >
-        {isPlaying ? '🔇' : '🔊'}
-      </button>
-
-      <audio ref={audioRef} loop>
-        <source src="/christmas-music.mp3" type="audio/mpeg" />
-      </audio>
     </div>
   )
 }

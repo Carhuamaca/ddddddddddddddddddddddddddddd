@@ -65,7 +65,7 @@ const products = [
     id: 1,
     name: 'Gorro sin adornos',
     price: 6,
-    image: 'https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/115643757_02/w=1500,h=1500,fit=pad',
+    image: 'https://http2.mlstatic.com/D_NQ_NP_774170-MLA78523240162_082024-O.webp',
     whatsappLink: 'wa.link/et77j7',
     features: ['Tela Plush A1', 'Piel de Cordero Sintética Premium', 'Ultra Suave']
   },
@@ -117,7 +117,7 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <div className="relative w-32 h-12">
               <Image
-                src="/placeholder.svg?height=48&width=128"
+                src="https://i.imgur.com/VqOfz4q.png"
                 alt="El Rincón de Marita Logo"
                 layout="fill"
                 objectFit="contain"
@@ -200,7 +200,7 @@ export default function Home() {
         <section id="contacto" className="text-center py-8">
           <h2 className="text-3xl font-lobster mb-4 text-[#D32F2F] fade-in">📞 Contáctanos</h2>
           <p className="text-xl font-roboto mb-6">Para más información puedes llamarnos al:</p>
-          <a href="tel:+51990382054" className="text-2xl font-bold text-[#388E3C] hover:underline">+51 990 382 054</a>
+          <a href="tel:+51922208408" className="text-2xl font-bold text-[#388E3C] hover:underline">+51 922 208 408</a>
         </section>
       </main>
     </div>

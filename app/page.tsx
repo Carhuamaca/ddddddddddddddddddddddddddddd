@@ -65,7 +65,7 @@ const products = [
     id: 1,
     name: 'Gorro sin adornos',
     price: 6,
-    image: '/placeholder.svg?height=400&width=400',
+    image: 'https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/115643757_02/w=1500,h=1500,fit=pad',
     whatsappLink: 'wa.link/et77j7',
     features: ['Tela Plush A1', 'Piel de Cordero Sintética Premium', 'Ultra Suave']
   },

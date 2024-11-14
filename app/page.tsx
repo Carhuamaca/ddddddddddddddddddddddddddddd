@@ -65,7 +65,7 @@ const products = [
     id: 1,
     name: 'Gorro sin adornos',
     price: 6,
-    image: 'https://github.com/Carhuamaca/ddddddddddddddddddddddddddddd/blob/main/gorro-de-navidad-de-tela-vertical.jpg?raw=true',
+    image: '"@/components/gorro.jpg?height=400&width=400',
     whatsappLink: 'wa.link/et77j7',
     features: ['Tela Plush A1', 'Piel de Cordero Sintética Premium', 'Ultra Suave']
   },
@@ -117,7 +117,7 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <div className="relative w-32 h-12">
               <Image
-                src="https://github.com/Carhuamaca/ddddddddddddddddddddddddddddd/blob/main/i_RAx7bWSl-pLHRn9dP49g__1_-removebg-preview.png?raw=true"
+                src="@/components/logo?height=48&width=128"
                 alt="El Rincón de Marita Logo"
                 layout="fill"
                 objectFit="contain"

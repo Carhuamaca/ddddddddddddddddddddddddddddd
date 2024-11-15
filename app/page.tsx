@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
@@ -65,7 +65,7 @@ const products = [
     id: 1,
     name: 'Gorro sin adornos',
     price: 6,
-    image: '"@/components/gorro.jpg?height=400&width=400',
+    image: 'gorro.jpg',
     whatsappLink: 'wa.link/et77j7',
     features: ['Tela Plush A1', 'Piel de Cordero Sintética Premium', 'Ultra Suave']
   },
@@ -117,7 +117,7 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <div className="relative w-32 h-12">
               <Image
-                src="@/components/logo?height=48&width=128"
+                src="logo.png"
                 alt="El Rincón de Marita Logo"
                 layout="fill"
                 objectFit="contain"
